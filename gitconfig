@@ -10,8 +10,11 @@
   remote = yellow
 
 [core]
-  pager = less -FRSX
+  pager = delta
 	editor = '/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl' -n -w
+
+[interactive]
+    diffFilter = delta --color-only
 
 [alias]
   co = checkout
@@ -49,3 +52,8 @@
 [user]
 	email = vincent.stammbach@promis.fr
 	name = Vincent Stammbach
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
